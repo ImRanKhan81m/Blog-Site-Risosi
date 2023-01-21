@@ -29,7 +29,6 @@ function App() {
     AOS.init();
   }, []);
 
-  // making theme dark
   const [dark, setDark] = useState(false);
 
   console.log(dark)
@@ -37,17 +36,6 @@ function App() {
   const valueObj = {
     setDark
   };
-
-  const compareUser = useMemo(() => {
-    return users?.find(user => user?.userInfo?.email === authUser?.email)
-  }, [authUser, users])
-
-  // console.log(compareUser)
-  useEffect(() => {
-    setSignedInUser(compareUser)
-  }, [compareUser])
-
-  // console.log(signedInUser);
 
 
   return (

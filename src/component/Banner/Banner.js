@@ -5,7 +5,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div className='mid-container'>
-            <div className='mt-10 flex items-center gap-5'>
+            <div className='mt-14 flex items-center gap-5'>
                 <div className='w-[50%]'>
                     <p>PROFESSIONAL</p>
                     <h1 className='font-bold text-5xl'>Welcome to our Blog Site!</h1>

@@ -11,8 +11,8 @@ const Navbar = () => {
     const { setDark } = useContext(articleDataContext);
 
     return (
-        <div className='mid-container py-2'>
-            <div className="navbar bg-base-100 ">
+        <div className=' py-2'>
+            <div className="navbar bg-base-100 px-0 mid-container">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
