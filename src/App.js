@@ -10,21 +10,12 @@ import ScrollToTop from "./hooks/ScrollToTop";
 import Home from "./pages/Home";
 import Navbar from "./component/Shared/Navbar";
 import Footer from "./component/Shared/Footer";
+import Blog from "./pages/Blog";
 
 
 
 const articleDataContext = createContext();
 function App() {
-
-  const [articles, setArticles] = useState([]);
-  const [searchValue, setSearchValue] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [signedInUser, setSignedInUser] = useState(null);
-  const [authUser] = useAuthState(auth);
-  const [categoryArticle, setCategoryArticle] = useState([]);
-  const [loader, setLoader] = useState(false);
-  const [transactionId, setTransactionId] = useState('');
-  const [premiumMember, setPremiumMember] = useState([]);
 
   useEffect(() => {
     AOS.init();
@@ -35,7 +26,8 @@ function App() {
   console.log(dark)
 
   const valueObj = {
-    setDark
+    setDark,
+    dark
   };
 
 
@@ -48,6 +40,7 @@ function App() {
 
         <Routes preserverScrollPosition={false}>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/blog" element={<Blog />}></Route>
 
         </Routes>
       </articleDataContext.Provider>

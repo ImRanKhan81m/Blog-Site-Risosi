@@ -20,9 +20,9 @@ const Navbar = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><a>About</a></li>
-                                <li><a>Blogs</a></li>
-                                <li><a>Dashboard</a></li>
+                                <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>About</h6></li>
+                                <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Blogs</h6></li>
+                                <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Dashboard</h6></li>
                             </ul>
                         </div>
                         <Link to='/'>
@@ -31,10 +31,14 @@ const Navbar = () => {
                     </div>
                     <div className='navbar-end'>
                         <div className="hidden lg:flex mr-5">
-                            <ul className="menu menu-horizontal px-1">
-                                <li><a className='font-semibold text-[18px] rounded'>About</a></li>
-                                <li><a className='font-semibold text-[18px]'>Blogs</a></li>
-                                <li><a className='font-semibold text-[18px]'>Dashboard</a></li>
+                            <ul className="menu menu-horizontal px-1 hover:bg-base-100">
+                                <Link to='/'>
+                                    <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>About</h6></li>
+                                </Link>
+                                <Link to='/blog'>
+                                    <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Blogs</h6></li>
+                                </Link>
+                                <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Dashboard</h6></li>
                             </ul>
                         </div>
                         <div className="flex justify-end gap-4 items-center">
