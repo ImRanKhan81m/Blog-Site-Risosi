@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Navbar from "./component/Shared/Navbar";
 import Footer from "./component/Shared/Footer";
 import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Routes preserverScrollPosition={false}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
+          <Route path='/blog-details/:id' element={<BlogDetails />}></Route>
 
         </Routes>
       </articleDataContext.Provider>
