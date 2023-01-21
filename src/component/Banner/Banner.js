@@ -17,9 +17,21 @@ const Banner = () => {
                         <img className='w-96' src={img} alt="" />
                     </div>
 
-                    <div className='absolute mr-20 mb-0'>
-                        <div className='p-5 bg-accent rounded-md'>
-                            <h6 className=''>Hi, I’m an eager <br/> developer who <br/> flutter around!</h6>
+                    <div className='absolute z-50 -mt-32'>
+                        <div className='px-5 py-3 shadow-xl rounded-md bg-white'>
+                            <h6 className='font-bold'>My Main Skills</h6>
+                            <div>
+                                <h1 className='font-bold text-sm mt-3'>ReactJS</h1>
+                                <progress className="progress progress-primary bg-accent w-44 h-[5px]" value="90" max="100"></progress>
+                            </div>
+                            <div>
+                                <h1 className='font-bold text-sm mt-2'>NodeJS</h1>
+                                <progress className="progress progress-primary bg-accent w-44 h-[5px]" value="70" max="100"></progress>
+                            </div>
+                            <div>
+                                <h1 className='font-bold text-sm mt-3'>MongoDB</h1>
+                                <progress className="progress progress-primary bg-accent w-44 h-[5px]" value="80" max="100"></progress>
+                            </div>
                         </div>
                     </div>
                 </div>

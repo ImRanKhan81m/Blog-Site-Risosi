@@ -31,90 +31,11 @@ function App() {
 
   // making theme dark
   const [dark, setDark] = useState(false);
-  // localStorage.setItem('theme', dark);
-  useEffect(() => {
-    fetch("https://exclusive-xylia-ayonjd.koyeb.app/theme")
-      .then((res) => res.json())
-      .then((data) => {
-        setDark(data[0].theme);
-      });
-  }, []);
 
-  const setTheme = () => {
-    fetch(
-      "https://exclusive-xylia-ayonjd.koyeb.app/theme/62d829c706b5a80f8247a020",
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          theme: !dark,
-        }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setDark(!dark);
-      });
-  };
-
-  // fetching all articles
-  useEffect(() => {
-    // setLoader(true);
-    fetch("https://exclusive-xylia-ayonjd.koyeb.app/blogs")
-      .then((res) => res.json())
-      .then((data) => {
-        setArticles(data);
-        setLoader(false);
-      });
-  }, []);
-
-  // fetching all users
-  useEffect(() => {
-    // setLoader(true);
-    fetch("https://exclusive-xylia-ayonjd.koyeb.app/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setLoader(false);
-        setUsers(data);
-      });
-  }, []);
-
-  //fetching all the premium users
-  useEffect(() => {
-    fetch("https://exclusive-xylia-ayonjd.koyeb.app/purches")
-      .then((res) => res.json())
-      .then((data) => {
-        setPremiumMember(data);
-      }
-      );
-  }, []);
-
-  useEffect(() => {
-    premiumMember?.find((user) => {
-      if (user?.buyer?.email === signedInUser?.email) {
-        setTransactionId(user.transactionId);
-      }
-    }
-    );
-  })
+  console.log(dark)
 
   const valueObj = {
-    articles,
-    searchValue,
-    setArticles,
-    setSearchValue,
-    users,
-    signedInUser,
-    setSignedInUser,
-    dark,
-    setCategoryArticle,
-    categoryArticle,
-    loader,
-    transactionId,
-    premiumMember,
-    setTransactionId,
+    setDark
   };
 
   const compareUser = useMemo(() => {
