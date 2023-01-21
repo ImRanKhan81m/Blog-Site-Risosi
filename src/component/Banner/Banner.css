@@ -1,0 +1,7 @@
+.bg-img{
+    background-image: url(../../assets/Ellipse\ 3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 45px;
+}
