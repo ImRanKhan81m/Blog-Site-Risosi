@@ -9,6 +9,7 @@ import { Toaster } from 'react-hot-toast';
 import ScrollToTop from "./hooks/ScrollToTop";
 import Home from "./pages/Home";
 import Navbar from "./component/Shared/Navbar";
+import Footer from "./component/Shared/Footer";
 
 
 
@@ -51,6 +52,7 @@ function App() {
         </Routes>
       </articleDataContext.Provider>
       <Toaster />
+      <Footer/>
     </div>
   );
 }

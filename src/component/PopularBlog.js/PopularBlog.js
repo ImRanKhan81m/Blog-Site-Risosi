@@ -21,8 +21,10 @@ const PopularBlog = () => {
 
     return (
         <section className='mid-container'>
-            <h1 className='text-2xl font-semibold border-b-[1px] pb-3 mb-5'>Recent Article</h1>
-            {/* <p className='text-sm mt-2'>Recent articles are selected based on update published</p> */}
+            <div className='flex justify-between items-center mt-10'>
+                <h1 className='text-2xl font-bold mb-3 border-b-[1px] w-48 pb-2'>Top Blogs</h1>
+                <h1 className='font-bold cursor-pointer mr-5'>See All</h1>
+            </div>
             <div className="lg:flex md:flex">
                 <div className='lg:w-[70%] lg:pr-10 md:pr-5 lg:border-r-[1px] md:border-r-[1px]'>
                     <div className=" grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-7 lg:mb-0 md:mb-0 sm:mb-5 mb-5">
