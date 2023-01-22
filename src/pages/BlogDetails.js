@@ -13,7 +13,7 @@ const BlogDetails = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5000/api/v1/blog/${id}`)
+        fetch(`https://blog-post-server-risosi.vercel.app/api/v1/blog/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data?.data)

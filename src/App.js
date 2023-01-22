@@ -35,7 +35,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/blog")
+    fetch("https://blog-post-server-risosi.vercel.app/api/v1/blog")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data?.data?.blogs);

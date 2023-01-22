@@ -26,7 +26,7 @@ const EditBlog = () => {
     // get blog by id
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5000/api/v1/blog/${id}`)
+        fetch(`https://blog-post-server-risosi.vercel.app/api/v1/blog/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data?.data)
@@ -56,7 +56,7 @@ const EditBlog = () => {
 
         console.log(blog)
 
-        fetch(`http://localhost:5000/api/v1/blog/${id}`, {
+        fetch(`https://blog-post-server-risosi.vercel.app/api/v1/blog/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const DeleteModal = ({ blog, setOpenDeleteModal }) => {
     const handleDelete = () => {
         // delete method 
         setOpenDeleteModal(false)
-        fetch(`http://localhost:5000/api/v1/blog/${_id}`, {
+        fetch(`https://blog-post-server-risosi.vercel.app/api/v1/blog/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
