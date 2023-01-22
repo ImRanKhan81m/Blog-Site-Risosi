@@ -175,18 +175,10 @@ const EditBlog = () => {
                                             >
                                                 <option disabled selected> Category </option>
                                                 <option>Programming</option>
-                                                <option>Resume</option>
                                                 <option >GitHub</option>
-                                                <option >Machine Learning</option>
-                                                <option >Web Development</option>
-                                                <option >ReactJS</option>
-                                                <option>NodeJS</option>
-                                                <option >MongoDB</option>
-                                                <option >CSS</option>
-                                                <option >Tailwind CSS</option>
-                                                <option>Flutter</option>
+                                                <option >Development</option>
                                                 <option >Technology</option>
-                                                <option >Web Design</option>
+                                                <option >Design</option>
                                                 <option>UI/UX</option>
                                             </select>
                                             <small className='text-[#FF4B2B] text-xs font-medium my-2'>{errors?.category?.message}</small>

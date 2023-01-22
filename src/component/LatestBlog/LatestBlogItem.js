@@ -14,18 +14,27 @@ const LatestBlogItem = ({ blog }) => {
 
     return (
         <div
-            onClick={() => handleDetailsPage()}
-            className='shadow rounded-xl cursor-pointer'>
+            className='shadow rounded cursor-pointer bg-white'>
             <div className='h-48 overflow-hidden'>
                 <img className='w-full h-full object-cover' src={blog?.image} alt="" />
             </div>
             <div className='p-5'>
                 <div className='text-xs flex justify-between mb-3'>
-                    <p>{blog?.authorName}</p>
+                    <p className='font-bold'>{blog?.authorName}</p>
                     <p>{blog?.publishDate}</p>
                 </div>
-                <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200'>{blog?.title?.slice(0, 50)}</h6>
-                <p className='text-xs py-3'>{blog?.description}</p>
+                {
+                    blog?.tags?.map((tag) => (
+                        <span className=' text-xs bg-gray-200 px-2 py-1 rounded-full mr-2'>{tag}</span>
+                    ))
+                }
+                <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title?.slice(0, 50)}</h6>
+
+                <div
+                   className='text-xs pt-1'
+                    dangerouslySetInnerHTML={{ __html: blog?.description }}
+                >
+                </div>
             </div>
         </div>
     );
