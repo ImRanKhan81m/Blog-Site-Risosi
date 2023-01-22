@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Overview = () => {
+const AllBlogs = () => {
     return (
         <div>
-            <h1>Overview</h1>
+            all blog dashboard
         </div>
     );
 };
 
-export default Overview;
+export default AllBlogs;

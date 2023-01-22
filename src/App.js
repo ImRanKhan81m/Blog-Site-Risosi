@@ -3,8 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import auth from "./firebase.init";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Toaster } from 'react-hot-toast';
 import ScrollToTop from "./hooks/ScrollToTop";
 import Home from "./pages/Home";
@@ -12,6 +10,8 @@ import Navbar from "./component/Shared/Navbar";
 import Footer from "./component/Shared/Footer";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import Dashboard from "./Dashboard/Dashboard";
+import AllBlogs from "./Dashboard/AllBlogs";
 
 
 
@@ -44,7 +44,15 @@ function App() {
           <Route path="/blog" element={<Blog />}></Route>
           <Route path='/blog-details/:id' element={<BlogDetails />}></Route>
 
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element={<AllBlogs />} />
+          </Route>
+
+
         </Routes>
+
+        
+
       </articleDataContext.Provider>
       <Toaster />
       <Footer/>
