@@ -39,8 +39,6 @@ function App() {
 
 
 
-  console.log(dark)
-
   const valueObj = {
     setDark,
     dark,
