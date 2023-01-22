@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -17,11 +17,14 @@ import BlogWiseComments from "./Dashboard/BlogWiseComments";
 import PendingComments from "./Dashboard/PendingComments";
 
 
-
 const articleDataContext = createContext();
+
+
 function App() {
   const [blogs, setBlogs] = useState([]);
   const [dark, setDark] = useState(false);
+  const router = useLocation()
+
 
   useEffect(() => {
     AOS.init();

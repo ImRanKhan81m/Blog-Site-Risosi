@@ -12,7 +12,7 @@ const Dashboard = () => {
     return (
         <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content pl-1">
+            <div className="drawer-content bg-[#f8f9ff4b]">
                 <Outlet />
             </div>
             <div className="drawer-side  h-[100vh]">

@@ -5,7 +5,7 @@ const AllBlogItem = ({ blog }) => {
     console.log(blog)
     return (
         <div
-            className='shadow rounded cursor-pointer'>
+            className='shadow rounded cursor-pointer bg-white'>
             <div className='h-48 overflow-hidden'>
                 <img className='w-full h-full object-cover' src={blog?.image} alt="" />
             </div>
