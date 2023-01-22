@@ -6,6 +6,7 @@ const AllBlogs = () => {
 
     const { blogs } = useContext(articleDataContext);
 
+    console.log(blogs)
     return (
         <>
             <div className='px-10 py-10 '>

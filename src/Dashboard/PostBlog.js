@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TagsInput } from "react-tag-input-component";
 import { BiImageAdd } from "react-icons/bi";
+import { BsCloudUploadFill } from "react-icons/bs";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const PostBlog = () => {
     const [selectedProductTag, setSelectedProductTag] = useState([]);
-    const [imageUrl, setImageUrl] = useState([]);
+    const [imageUrl, setImageUrl] = useState(null);
     const [richText, setValueOfRichText] = useState("");
     const [valueOfParantCategory, setValueOfParantCategory] = useState("");
     const [imageUploadErrorMessage, setImageUploadErrorMessage] = useState(null);
@@ -30,7 +31,7 @@ const PostBlog = () => {
             description: richText,
             category: data.category,
             tags: selectedProductTag,
-            imageURLs: imageUrl,
+            image: imageUrl,
         };
 
         console.log(blog)
@@ -49,7 +50,9 @@ const PostBlog = () => {
     };
 
 
-    const imgUrl = `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`;
+    // const imgUrl = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
+
+    const imgUrl = `https://api.imgbb.com/1/upload?key=14461d1404019ac5e51b83bd6b860f94`;
     const handleImageUpload = (e) => {
         const image = e.target.files[0];
         const formData = new FormData();
@@ -61,16 +64,7 @@ const PostBlog = () => {
         })
             .then((res) => res.json())
             .then((result) => {
-                if (result.data?.url) {
-                    let newImageUrls = [...imageUrl];
-                    newImageUrls.push(result.data?.url);
-                    setImageUrl(newImageUrls);
-                    setImageUploadErrorMessage(null);
-                }
-
-                return setImageUploadErrorMessage(
-                    "Image Upload failed, please check your internet connectoin"
-                );
+                setImageUrl(result.data?.url);
             });
     };
 
@@ -188,58 +182,37 @@ const PostBlog = () => {
                         </div>
                     </div>
 
-                    <div className=" mb-4 mt-16">
-                        <label htmlFor="img" className=" font-semibold ">Image</label>
-                        <div className="w-full md:w-[70%] mt-3 ">
-                            <div className="relative border border-dashed w-96 h-24  text-center">
-                                {/* <BsCloudUploadFill
-                                    size={35}
-                                    className="text-primary mx-auto block  mt-8"
-                                /> */}
-                                <p className=" font-bold pt-4 text-slate-900">
-                                    Drag your image here
-                                </p>
-                                <span className="text-xs  text-slate-900">
-                                    (Only *.jpeg and *.png images will be accepted)
-                                </span>
-                                <input
-                                    type="file"
-                                    onChange={handleImageUpload}
-                                    className="opacity-0 absolute top-0 left-0 bottom-0 right-0 w-full h-full cursor-pointer"
+             
+
+                    <div className="w-full  mt-16">
+                        <div className="relative border border-dashed h-28 w-60  text-center">
+                            <BsCloudUploadFill
+                                size={35}
+                                className="text-primary mx-auto block  mt-8"
+                            />
+                            <p className="text-xl font-bold  text-slate-900">
+                                Drag your image here
+                            </p>
+                            <span className="text-xs font-bold text-slate-900">
+                                (Only *.jpeg and *.png images will be accepted)
+                            </span>
+                            <input
+                                type="file"
+                                onChange={handleImageUpload}
+                                className="opacity-0 absolute top-0 left-0 bottom-0 right-0 w-full h-full cursor-pointer"
+                            />
+                        </div>
+                        {imageUrl && (
+                            <div className="  w-[100px] h-auto p-1 bg-white shadow-md rounded-md mt-3 ">
+                                <img
+                                    src={imageUrl}
+                                    width="100"
+                                    height="2"
+                                    alt="category image"
+                                    className="w-full h-full object-contain "
                                 />
                             </div>
-
-                            <div className="flex flex-wrap gap-2">
-                                {imageUrl.map((img) => {
-                                    return (
-                                        <div
-                                            className="  w-[100px] h-auto p-1 bg-white shadow-md rounded-md mt-3 "
-                                            key={img?.id}
-                                        >
-                                            <img
-                                                src={img}
-                                                alt="category image"
-                                                className="w-full h-full object-contain "
-                                            />
-                                        </div>
-                                    );
-                                })}
-                                <div className="relative w-[100px] h-[100px] p-1 bg-white shadow-md rounded-md mt-3 flex justify-center items-center">
-                                    <span>
-                                        <BiImageAdd
-                                            onChange={handleImageUpload}
-                                            size={45}
-                                            className="text-primary cursor-pointer hover:text-slate-700"
-                                        />
-                                        <input
-                                            type="file"
-                                            onChange={handleImageUpload}
-                                            className="opacity-0 absolute top-0 left-0 bottom-0 right-0 w-full h-full cursor-pointer"
-                                        />
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        )}
                     </div>
 
 
