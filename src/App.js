@@ -15,6 +15,7 @@ import AllBlogs from "./Dashboard/AllBlogs";
 import PostBlog from "./Dashboard/PostBlog";
 import BlogWiseComments from "./Dashboard/BlogWiseComments";
 import PendingComments from "./Dashboard/PendingComments";
+import EditBlog from "./Dashboard/EditBlog";
 
 
 const articleDataContext = createContext();
@@ -67,10 +68,10 @@ function App() {
           <Route path="dashboard" element={<Dashboard />}>
             <Route path="all-blogs" element={<AllBlogs />} />
             <Route path="post-blog" element={<PostBlog />} />
+            <Route path="edit-blog/:id" element={<EditBlog />} />
             <Route path='blog-comments' element={<BlogWiseComments />} />
             <Route path='pending-comments' element={<PendingComments />} />
           </Route>
-
 
         </Routes>
 

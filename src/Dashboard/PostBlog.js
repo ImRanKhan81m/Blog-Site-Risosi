@@ -5,13 +5,17 @@ import { BiImageAdd } from "react-icons/bi";
 import { BsCloudUploadFill } from "react-icons/bs";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { articleDataContext } from '../App';
 
 const PostBlog = () => {
     const [selectedProductTag, setSelectedProductTag] = useState([]);
     const [imageUrl, setImageUrl] = useState(null);
     const [richText, setValueOfRichText] = useState("");
-    const [valueOfParantCategory, setValueOfParantCategory] = useState("");
-    const [imageUploadErrorMessage, setImageUploadErrorMessage] = useState(null);
+    const navigate = useNavigate()
+    const { refresh, setRefresh } = useContext(articleDataContext);
 
 
     // console.log(imageUrl)
@@ -27,7 +31,7 @@ const PostBlog = () => {
         const blog = {
             title: data.title,
             authorName: data.author,
-            date: data.date,
+            publishDate: data.date,
             description: richText,
             category: data.category,
             tags: selectedProductTag,
@@ -46,6 +50,11 @@ const PostBlog = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log("blog added", result);
+                if(result?.status === 'success'){
+                    toast.success('Blog added successfully')
+                    navigate('/dashboard/all-blogs')
+                    setRefresh(!refresh)
+                }
             });
     };
 
@@ -185,15 +194,15 @@ const PostBlog = () => {
              
 
                     <div className="w-full  mt-16">
-                        <div className="relative border border-dashed h-28 w-60  text-center">
+                    <div className="relative border border-dashed h-28 w-96  text-center">
                             <BsCloudUploadFill
-                                size={35}
-                                className="text-primary mx-auto block  mt-8"
+                                size={25}
+                                className="text-primary mx-auto block  mt-4"
                             />
-                            <p className="text-xl font-bold  text-slate-900">
+                            <p className=" text-slate-900">
                                 Drag your image here
                             </p>
-                            <span className="text-xs font-bold text-slate-900">
+                            <span className="text-xs text-slate-900">
                                 (Only *.jpeg and *.png images will be accepted)
                             </span>
                             <input
@@ -218,7 +227,7 @@ const PostBlog = () => {
 
                     <div className="flex justify-end items-center gap-5 mb-4">
                         {/* <button type='submit' className=" bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto">Publish your Blog</button> */}
-                        <button type='submit' className="btn btn-primary ml-auto">Add Product</button>
+                        <button  disabled={!imageUrl}  type='submit'  className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary ">Publish your Blog</button>
                     </div>
                 </form>
             </div>

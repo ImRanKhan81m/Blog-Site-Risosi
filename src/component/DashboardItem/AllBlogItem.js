@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DeleteModal from '../Shared/DeleteModal';
 
 const AllBlogItem = ({ blog }) => {
     const [openDeleteModal, setOpenDeleteModal] = useState(false);
+    const navigate = useNavigate()
 
 
 
@@ -14,7 +16,7 @@ const AllBlogItem = ({ blog }) => {
             </div>
             <div className='p-5'>
                 <div className='text-xs flex justify-between mb-3'>
-                    <p>{blog?.authorName}</p>
+                    <p className='font-bold'>{blog?.authorName}</p>
                     <p>{blog?.publishDate}</p>
                 </div>
                 {
@@ -23,10 +25,17 @@ const AllBlogItem = ({ blog }) => {
                     ))
                 }
                 <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title?.slice(0, 50)}</h6>
-                <p className='text-xs pb-3 pt-1'>{blog?.description}</p>
+
+                <div
+                   className='text-xs pb-3 pt-1'
+                    dangerouslySetInnerHTML={{ __html: blog?.description }}
+                >
+                </div>
 
                 <div className='mt-3 flex '>
-                    <button className='bg-warning mr-2 text-white px-3 py-1 rounded text-sm'>Edit Blog</button>
+                    <button
+                        onClick={() => navigate(`/dashboard/edit-blog/${blog?._id}`)}
+                        className='bg-warning mr-2 text-white px-3 py-1 rounded text-sm'>Edit Blog</button>
 
                     <label
                         onClick={() => setOpenDeleteModal(!openDeleteModal)}
@@ -37,9 +46,9 @@ const AllBlogItem = ({ blog }) => {
                     {
                         openDeleteModal && (
 
-                            <DeleteModal 
-                            blog={blog} 
-                            setOpenDeleteModal={setOpenDeleteModal} />
+                            <DeleteModal
+                                blog={blog}
+                                setOpenDeleteModal={setOpenDeleteModal} />
                         )
                     }
                 </div>
