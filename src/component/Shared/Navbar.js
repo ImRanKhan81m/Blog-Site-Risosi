@@ -38,10 +38,9 @@ const Navbar = () => {
                                 <Link to='/blog'>
                                     <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Blogs</h6></li>
                                 </Link>
-                                <Link to='/dashboard'>
+                                <Link to='/dashboard/all-blogs'>
                                     <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>Dashboard</h6></li>
                                 </Link>
-
                             </ul>
                         </div>
                         <div className="flex justify-end gap-4 items-center">

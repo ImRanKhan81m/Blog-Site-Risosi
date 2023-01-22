@@ -5,25 +5,27 @@ import img from '../../assets/image 21.png'
 
 
 
-const LatestBlogItem = () => {
+const LatestBlogItem = ({ blog }) => {
     const navigate = useNavigate()
 
     const handleDetailsPage = () => {
         navigate('/blog-details/details')
     }
-    
+
     return (
-        <div 
-        onClick={() => handleDetailsPage()}
-        className='shadow rounded-xl cursor-pointer'>
-            <img className='w-full' src={img} alt="" />
+        <div
+            onClick={() => handleDetailsPage()}
+            className='shadow rounded-xl cursor-pointer'>
+            <div className='h-48 overflow-hidden'>
+                <img className='w-full h-full object-cover' src={blog?.image} alt="" />
+            </div>
             <div className='p-5'>
                 <div className='text-xs flex justify-between mb-3'>
-                    <p>Best PACKAGES- Part 1</p>
-                    <p>24 MAY 2022</p>
+                    <p>{blog?.authorName}</p>
+                    <p>{blog?.publishDate}</p>
                 </div>
-                <h6 className='font-bold text-xl cursor-pointer hover:text-primary duration-200'>Minimalist Guide to Flutter Hooks</h6>
-                <p className='text-xs py-3'>Hooks are a new kind of object that manages a Widget life-cycles. They exist for one reason: increase the code-sharing between widgets by removing duplicates.....</p>
+                <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200'>{blog?.title?.slice(0, 50)}</h6>
+                <p className='text-xs py-3'>{blog?.description}</p>
             </div>
         </div>
     );

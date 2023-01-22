@@ -1,23 +1,17 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { articleDataContext } from '../../App';
 import LatestBlogItem from '../LatestBlog/LatestBlogItem';
 import PopularBlogItem from './PopularBlogItem';
 import PopularBlogRight from './PopularBlogRight';
 import SocialLinked from './SocialLinked';
 
 const PopularBlog = () => {
-    const [articles, setArticles] = useState([]);
+    const { blogs } = useContext(articleDataContext);
 
-    useEffect(() => {
-        fetch("https://exclusive-xylia-ayonjd.koyeb.app/blogs")
-            .then((res) => res.json())
-            .then((data) => {
-                setArticles(data);
-            });
-    }, []);
-
-    const articleCopy = [...articles];
+    const articleCopy = [...blogs];
 
     return (
         <section className='mid-container'>
@@ -31,16 +25,16 @@ const PopularBlog = () => {
                         {articleCopy?.reverse()?.slice(0, 2).map((article, index) => (
                             < LatestBlogItem
                                 key={index}
-                                article={article}
+                                blog={article}
                             />
                         ))}
                     </div>
 
                     <div className="mt-5 grid lg:grid-cols-2 md:grid-cols-2 gap-x-7 gap-y-4">
-                        {articles?.slice(0, 6).map((article) => (
+                        {blogs?.slice(0, 6).map((article) => (
                             <PopularBlogItem
                                 key={article._id}
-                                article={article}
+                                blog={article}
                             ></PopularBlogItem>
                         ))}
                     </div>
@@ -50,10 +44,10 @@ const PopularBlog = () => {
                         <h2 className='bg-black text-white py-2 pl-3 rounded'>OUR PICKS</h2>
                     </div>
                     <div className=" grid">
-                        {articles.slice(0, 4).map((article) => (
+                        {blogs.slice(0, 4).map((article) => (
                             <PopularBlogRight
                                 key={article._id}
-                                article={article}
+                                blog={article}
                             ></PopularBlogRight>
                         ))}
                     </div>

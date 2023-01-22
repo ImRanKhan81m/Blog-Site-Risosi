@@ -20,18 +20,31 @@ import PendingComments from "./Dashboard/PendingComments";
 
 const articleDataContext = createContext();
 function App() {
+  const [blogs, setBlogs] = useState([]);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const [dark, setDark] = useState(false);
+
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/v1/blog")
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data?.data?.blogs);
+      });
+  }, []);
+
+
 
   console.log(dark)
 
   const valueObj = {
     setDark,
-    dark
+    dark,
+    blogs
   };
 
 
@@ -57,11 +70,11 @@ function App() {
 
         </Routes>
 
-        
+
 
       </articleDataContext.Provider>
       <Toaster />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
