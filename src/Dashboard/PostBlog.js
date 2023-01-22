@@ -184,7 +184,7 @@ const PostBlog = () => {
 
 
                     <div className="w-full  mt-16">
-                        <div className="relative border border-dashed h-28 w-96  text-center">
+                        <div className="relative border border-dashed h-28 sm:w-96  text-center">
                             <BsCloudUploadFill
                                 size={25}
                                 className="text-primary mx-auto block  mt-4"

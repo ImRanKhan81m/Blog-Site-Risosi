@@ -9,11 +9,12 @@ const LatestBlogItem = ({ blog }) => {
     const navigate = useNavigate()
 
     const handleDetailsPage = () => {
-        navigate('/blog-details/details')
+        navigate(`/blog-details/${blog?._id}`)
     }
 
     return (
         <div
+            onClick={handleDetailsPage}
             className='shadow rounded cursor-pointer bg-white'>
             <div className='h-48 overflow-hidden'>
                 <img className='w-full h-full object-cover' src={blog?.image} alt="" />
@@ -28,10 +29,10 @@ const LatestBlogItem = ({ blog }) => {
                         <span className=' text-xs bg-gray-200 px-2 py-1 rounded-full mr-2'>{tag}</span>
                     ))
                 }
-                <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title?.slice(0, 50)}</h6>
+                <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title}</h6>
 
                 <div
-                   className='text-xs pb-3 pt-1'
+                    className='text-xs pb-3 pt-1'
                     dangerouslySetInnerHTML={{ __html: blog?.description?.slice(0, 250) }}
                 >
                 </div>

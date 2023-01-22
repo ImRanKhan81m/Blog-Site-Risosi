@@ -1,10 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const PopularBlogRight = ({ blog}) => {
+const PopularBlogRight = ({ blog }) => {
+    const navigate = useNavigate()
+
+    const handleDetailsPage = () => {
+        navigate(`/blog-details/${blog?._id}`)
+    }
     return (
         <div
+            onClick={handleDetailsPage}
             className='flex items-center gap-2 border-b-[1px] py-3 cursor-pointer'
-           >
+        >
             <div className='w-[35%]'>
                 <img className='w-full h-20 object-cover' src={blog?.image} alt={blog?.image} />
             </div>

@@ -16,8 +16,6 @@ const EditBlog = () => {
     const [selectedProductTag, setSelectedProductTag] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const [richText, setValueOfRichText] = useState("");
-    const [valueOfParantCategory, setValueOfParantCategory] = useState("");
-    const [imageUploadErrorMessage, setImageUploadErrorMessage] = useState(null);
     const { id } = useParams();
     const { title, description, image, category, tags, authorName, publishDate } = blog
     const [loading, setLoading] = useState(false);
@@ -194,7 +192,7 @@ const EditBlog = () => {
                                         <div className="w-full mt-2">
                                             <ReactQuill
                                                 theme="snow"
-                                                value={description}
+                                                value={richText}
                                                 onChange={setValueOfRichText}
                                                 style={{ height: 200, marginBottom: 12 }}
                                             />
@@ -204,7 +202,7 @@ const EditBlog = () => {
 
 
                                     <div className="w-full  mt-16">
-                                        <div className="relative border border-dashed h-28 w-96  text-center">
+                                        <div className="relative border border-dashed h-28 sm:w-96  text-center">
                                             <BsCloudUploadFill
                                                 size={25}
                                                 className="text-primary mx-auto block  mt-4"
@@ -235,8 +233,8 @@ const EditBlog = () => {
                                     </div>
 
 
-                                    <button disabled={!imageUrl} type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
-                                        {imageUrl ? 'Publish your Blog' : 'Please upload image'}
+                                    <button  type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
+                                      Edit your Blog
                                     </button>
                                 </form>
                             </div>
