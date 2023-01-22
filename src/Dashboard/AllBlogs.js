@@ -8,9 +8,9 @@ const AllBlogs = () => {
 
     return (
         <>
-            <div className='px-10 py-10 '>
+            <div className='px-5 sm:py-10 py-5'>
                 <h1 className='font-semibold text-2xl border-b-[1px] w-28 pb-1 mb-5'>All Blogs</h1>
-                <div className='grid grid-cols-4 gap-x-5 gap-y-7'>
+                <div className='grid md:grid-cols-3 gap-x-5 gap-y-7'>
                     {blogs?.map((article) => (
                         <AllBlogItem
                             key={article._id}
