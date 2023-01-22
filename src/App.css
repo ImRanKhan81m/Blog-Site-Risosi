@@ -24,6 +24,14 @@ h6 {
   font-family: 'Nunito', sans-serif;
 }
 
+#test-catagory-menus li ul {
+  display: none;
+}
+
+#test-catagory-menus li:hover ul {
+  display: block;
+}
+
 .mid-container {
   /* padding: 3rem 10%; */
   max-width: 1200px;
