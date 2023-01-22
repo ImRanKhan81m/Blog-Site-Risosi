@@ -107,9 +107,10 @@ const EditBlog = () => {
                 </div> :
                     (
                         <div className='sm:py-10 py-5'>
-                            <h1 className='font-semibold text-2xl border-b-[1px] w-32 pb-1 mb-5 ml-5'>Edit Blog</h1>
+
 
                             <div className='bg-white shadow p-5 rounded md:w-[80%] w-[95%] mx-auto'>
+                                <h1 className='font-semibold text-2xl border-b-[1px] w-32 pb-1 mb-5'>Edit Blog</h1>
                                 <form
                                     onSubmit={handleSubmit(blogSubmit)}
                                     className="mt-5">
@@ -234,10 +235,9 @@ const EditBlog = () => {
                                     </div>
 
 
-                                    <div className="flex mt-5 justify-end items-center gap-5 mb-4">
-                                        {/* <button type='submit' className=" bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto">Publish your Blog</button> */}
-                                        <button type='submit' className="btn btn-primary ml-auto">Add Product</button>
-                                    </div>
+                                    <button disabled={!imageUrl} type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
+                                        {imageUrl ? 'Publish your Blog' : 'Please upload image'}
+                                    </button>
                                 </form>
                             </div>
                         </div>

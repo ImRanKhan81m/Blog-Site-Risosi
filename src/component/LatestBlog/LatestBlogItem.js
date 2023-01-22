@@ -31,8 +31,8 @@ const LatestBlogItem = ({ blog }) => {
                 <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title?.slice(0, 50)}</h6>
 
                 <div
-                   className='text-xs pt-1'
-                    dangerouslySetInnerHTML={{ __html: blog?.description }}
+                   className='text-xs pb-3 pt-1'
+                    dangerouslySetInnerHTML={{ __html: blog?.description?.slice(0, 250) }}
                 >
                 </div>
             </div>

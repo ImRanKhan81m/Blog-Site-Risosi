@@ -50,7 +50,7 @@ const PostBlog = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log("blog added", result);
-                if(result?.status === 'success'){
+                if (result?.status === 'success') {
                     toast.success('Blog added successfully')
                     navigate('/dashboard/all-blogs')
                     setRefresh(!refresh)
@@ -80,9 +80,10 @@ const PostBlog = () => {
 
     return (
         <div className='sm:py-10 py-5'>
-            <h1 className='font-semibold ml-5 text-2xl border-b-[1px] w-52 pb-1 mb-5'>Create a new Blog</h1>
+
 
             <div className='bg-white shadow p-5 rounded md:w-[80%] w-[95%] mx-auto'>
+                <h1 className='font-semibold text-2xl border-b-[1px] w-52 pb-1 mb-5'>Create a new Blog</h1>
                 <form
                     onSubmit={handleSubmit(blogSubmit)}
                     className="mt-5">
@@ -180,10 +181,10 @@ const PostBlog = () => {
                         </div>
                     </div>
 
-             
+
 
                     <div className="w-full  mt-16">
-                    <div className="relative border border-dashed h-28 w-96  text-center">
+                        <div className="relative border border-dashed h-28 w-96  text-center">
                             <BsCloudUploadFill
                                 size={25}
                                 className="text-primary mx-auto block  mt-4"
@@ -213,10 +214,12 @@ const PostBlog = () => {
                         )}
                     </div>
 
-                    <div className="flex justify-end items-center gap-5 mb-4 ">
-                        {/* <button type='submit' className=" bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto">Publish your Blog</button> */}
-                        <button  disabled={!imageUrl}  type='submit'  className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-3">Publish your Blog</button>
-                    </div>
+
+
+                    <button disabled={!imageUrl} type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
+                        {imageUrl ? 'Publish your Blog' : 'Please upload image'}
+                    </button>
+
                 </form>
             </div>
         </div>

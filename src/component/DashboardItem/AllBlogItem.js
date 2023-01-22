@@ -28,7 +28,7 @@ const AllBlogItem = ({ blog }) => {
 
                 <div
                    className='text-xs pb-3 pt-1'
-                    dangerouslySetInnerHTML={{ __html: blog?.description }}
+                    dangerouslySetInnerHTML={{ __html: blog?.description?.slice(0, 250) }}
                 >
                 </div>
 

@@ -2,8 +2,8 @@ import React from 'react';
 
 const PendingComments = () => {
     return (
-        <div>
-            Pending comments
+        <div className='p-10'>
+            Pending comments will be here...
         </div>
     );
 };

@@ -2,8 +2,8 @@ import React from 'react';
 
 const BlogWiseComments = () => {
     return (
-        <div>
-            Blog wise comments
+        <div className='p-10'>
+            Blog wise comments will be here...
         </div>
     );
 };
