@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DeleteModal from '../Shared/DeleteModal';
 
 const AllBlogItem = ({ blog }) => {
+    const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
-    console.log(blog)
+
+
     return (
         <div
             className='shadow rounded cursor-pointer bg-white'>
@@ -22,9 +25,23 @@ const AllBlogItem = ({ blog }) => {
                 <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title?.slice(0, 50)}</h6>
                 <p className='text-xs pb-3 pt-1'>{blog?.description}</p>
 
-                <div className='mt-3'>
+                <div className='mt-3 flex '>
                     <button className='bg-warning mr-2 text-white px-3 py-1 rounded text-sm'>Edit Blog</button>
-                    <button className='bg-error text-white px-3 py-1 rounded text-sm'>Delete</button>
+
+                    <label
+                        onClick={() => setOpenDeleteModal(!openDeleteModal)}
+                        htmlFor="my-modal-4"
+                        className='bg-error text-white px-3 py-1 rounded text-sm cursor-pointer'>
+                        Delete
+                    </label>
+                    {
+                        openDeleteModal && (
+
+                            <DeleteModal 
+                            blog={blog} 
+                            setOpenDeleteModal={setOpenDeleteModal} />
+                        )
+                    }
                 </div>
             </div>
         </div>

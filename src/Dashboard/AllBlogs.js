@@ -4,7 +4,8 @@ import AllBlogItem from '../component/DashboardItem/AllBlogItem';
 
 const AllBlogs = () => {
 
-    const { blogs } = useContext(articleDataContext);
+    const { blogs} = useContext(articleDataContext);
+
 
     console.log(blogs)
     return (

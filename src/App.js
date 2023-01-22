@@ -23,6 +23,7 @@ const articleDataContext = createContext();
 function App() {
   const [blogs, setBlogs] = useState([]);
   const [dark, setDark] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   const router = useLocation()
 
 
@@ -38,14 +39,16 @@ function App() {
       .then((data) => {
         setBlogs(data?.data?.blogs);
       });
-  }, []);
+  }, [refresh]);
 
 
 
   const valueObj = {
     setDark,
     dark,
-    blogs
+    blogs,
+    refresh,
+    setRefresh
   };
 
 
