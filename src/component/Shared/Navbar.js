@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CgSearch } from 'react-icons/cg';
+import { MdOutlineDashboard } from 'react-icons/md';
 import logo from '../../assets/nav-logo.png'
 import { useContext } from 'react';
 import { articleDataContext } from '../../App';
 
 const Navbar = () => {
-
-    // get value by using context api
+    const { pathname } = useLocation();
     const { setDark } = useContext(articleDataContext);
 
     return (
@@ -20,7 +20,7 @@ const Navbar = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to='/'>
+                                <Link to='/'>
                                     <li><h6 className='font-semibold text-[16px] hover:bg-base-100 hover:text-primary'>About</h6></li>
                                 </Link>
                                 <Link to='/blog'>
@@ -50,6 +50,16 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className="flex justify-end gap-4 items-center">
+
+                            <div className='lg:hidden '>
+                                {
+                                    pathname.includes("dashboard") && (<label htmlFor="my-drawer-2" tabIndex="1" className=" cursor-pointer">
+                                        <MdOutlineDashboard className='text-2xl' />
+                                    </label>)
+                                }
+                            </div>
+
+
                             <div className='text-3xl cursor-pointer'>
                                 <CgSearch />
                             </div>
