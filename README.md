@@ -1,13 +1,12 @@
-# Article base website
-
-### Live Site Link : [explorer]()
 
 ## Used Features
 
 - React Router
-- React Firebase Hooks
-- React Bootstrap
-- Firebase
+- React Firebase hooks
+- React quill
+- React icons
+- React-redux
+- React toastify
 - Mongodb
 - React Hook Form
 - React Toast
