@@ -16,6 +16,8 @@ import PostBlog from "./Dashboard/PostBlog";
 import BlogWiseComments from "./Dashboard/BlogWiseComments";
 import PendingComments from "./Dashboard/PendingComments";
 import EditBlog from "./Dashboard/EditBlog";
+import Loading from "./component/Shared/Loading";
+import NotFound from "./component/Shared/NotFound";
 
 
 const articleDataContext = createContext();
@@ -25,6 +27,7 @@ function App() {
   const [blogs, setBlogs] = useState([]);
   const [dark, setDark] = useState(false);
   const [refresh, setRefresh] = useState(false);
+  const [loader, setLoader] = useState(false);
   const router = useLocation()
 
 
@@ -35,11 +38,13 @@ function App() {
 
 
   useEffect(() => {
+    setLoader(true)
     fetch("https://blog-post-server-risosi.vercel.app/api/v1/blog")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data?.data?.blogs);
-      });
+      })
+      .finally(() => setLoader(false))
   }, [refresh]);
 
 
@@ -49,7 +54,8 @@ function App() {
     dark,
     blogs,
     refresh,
-    setRefresh
+    setRefresh,
+    loader,
   };
 
 
@@ -73,6 +79,7 @@ function App() {
             <Route path='pending-comments' element={<PendingComments />} />
           </Route>
 
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
 

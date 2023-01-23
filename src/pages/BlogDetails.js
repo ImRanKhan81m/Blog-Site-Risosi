@@ -27,7 +27,9 @@ const BlogDetails = () => {
     return (
         <div className='mid-container'>
             <div className='pt-10 md:pb-20 pb-5'>
-                <img className='w-full h-96 object-cover mb-3' src={blog?.image} alt="" />
+               <div className='w-full md:h-96 sm:h-60 h-36'>
+               <img className='w-full h-full object-cover mb-3' src={blog?.image} alt="" />
+               </div>
                 <h2 className='mt-5 font-bold text-2xl mb-2'>{blog?.title}</h2>
                 {
                     blog?.tags?.map((tag) => (

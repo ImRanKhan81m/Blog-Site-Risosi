@@ -10,6 +10,7 @@ import ReactQuill from 'react-quill';
 import { toast } from 'react-hot-toast';
 import { useContext } from 'react';
 import { articleDataContext } from '../App';
+import Loading from '../component/Shared/Loading';
 
 const EditBlog = () => {
     const [blog, setBlog] = useState({})
@@ -98,11 +99,7 @@ const EditBlog = () => {
     return (
         <>
             {
-                loading ? <div className="text-center mt-5">
-                    <div className="spinner-border text-primary" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                </div> :
+                loading ? <Loading /> :
                     (
                         <div className='sm:py-10 py-5'>
 
@@ -233,8 +230,8 @@ const EditBlog = () => {
                                     </div>
 
 
-                                    <button  type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
-                                      Edit your Blog
+                                    <button type='submit' className="btn bg-[#3185FC] px-4 py-3 rounded cursor-pointer text-white ml-auto hover:bg-secondary mt-5">
+                                        Edit your Blog
                                     </button>
                                 </form>
                             </div>

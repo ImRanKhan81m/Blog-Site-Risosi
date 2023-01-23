@@ -3,13 +3,14 @@ import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { articleDataContext } from '../App';
 import LatestBlogItem from '../component/LatestBlog/LatestBlogItem';
+import Loading from '../component/Shared/Loading';
 import { toggleFilters } from '../features/filter/filterSlice';
 
 const Blog = () => {
     const { filters } = useSelector(state => state.filter)
     const dispatch = useDispatch()
     const { dark } = useContext(articleDataContext);
-    const { blogs } = useContext(articleDataContext);
+    const { blogs, loader } = useContext(articleDataContext);
 
     const activeClass = `bg-warning ${dark && 'text-[#fffff] bg-primary border-warning'} text-white`
 
