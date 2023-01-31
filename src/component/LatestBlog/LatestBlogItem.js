@@ -31,11 +31,11 @@ const LatestBlogItem = ({ blog }) => {
                 }
                 <h6 className='font-bold text-xl cursor-pointer hover:text-error duration-200 mt-4'>{blog?.title}</h6>
 
-                <div
+                {/* <div
                     className='text-xs pb-3 pt-1'
                     dangerouslySetInnerHTML={{ __html: blog?.description?.slice(0, 250) }}
                 >
-                </div>
+                </div> */}
             </div>
         </div>
     );
